@@ -13,18 +13,18 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Query(value = "select r.regionDescription as regiondescription, count(e.employeeid) as cantidadempleados " +
-            "FROM region r\n" +
-            "inner join territories t on (r.regionid = t.regionid)\n" +
-            "inner join employeeterritories et on (t.territoryid = et.territoryid)\n" +
-            "inner join employees e on (e.employeeid = et.employeeid)\n" +
+            "FROM Region r\n" +
+            "inner join Territories t on (r.regionid = t.regionid)\n" +
+            "inner join EmployeeTerritories et on (t.territoryid = et.territoryid)\n" +
+            "inner join Employees e on (e.employeeid = et.employeeid)\n" +
             "group by r.regionid\n", nativeQuery = true)
     List<EmpleadosRegionDto> obtenerEmpleadosPorRegion();
 
-    @Query(value = "SELECT country as pais, count(*) as cantidad FROM employees GROUP BY country",
+    @Query(value = "SELECT country as pais, count(*) as cantidad FROM Employees GROUP BY country",
             nativeQuery = true)
     List<EmpleadosPorPaisDto> obtenerEmpleadosPorPais();
 
-    @Query(value = "SELECT country as pais, count(*) as cantidad FROM employees WHERE country = ?1 GROUP BY country",
+    @Query(value = "SELECT country as pais, count(*) as cantidad FROM Employees WHERE country = ?1 GROUP BY country",
             nativeQuery = true)
     List<EmpleadosPorPaisDto> obtenerEmpleadosPorPais(String nombrePais);
 }

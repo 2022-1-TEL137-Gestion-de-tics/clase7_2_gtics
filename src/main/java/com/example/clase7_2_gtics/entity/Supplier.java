@@ -3,7 +3,7 @@ package com.example.clase7_2_gtics.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "suppliers")
+@Table(name = "Suppliers")
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

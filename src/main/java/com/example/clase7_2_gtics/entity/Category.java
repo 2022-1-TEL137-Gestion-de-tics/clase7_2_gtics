@@ -3,7 +3,7 @@ package com.example.clase7_2_gtics.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "Categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
